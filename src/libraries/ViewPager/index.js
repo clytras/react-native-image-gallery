@@ -73,7 +73,7 @@ export default class ViewPager extends PureComponent {
                 }
             } else {
                 const curX = this.scroller.getCurrX();
-                this.innerFlatListRef.current?.scrollToOffset({ offset: curX, animated: true });
+                this.innerFlatListRef.current?.scrollToOffset({ offset: curX, animated: false });
 
                 let position = Math.floor(curX / (this.state.width + this.props.pageMargin));
                 position = this.validPage(position);
