@@ -137,6 +137,7 @@ export interface Props extends ViewProps {
 
 export interface Pager {
     scrollToIndex: (index: number) => void;
+    scrollToPage: (page: number, immediate: boolean = false, immediateAnimated: boolean = false) => void;
 }
 
 export default class Gallery extends PureComponent<Props> {
