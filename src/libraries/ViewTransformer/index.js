@@ -34,6 +34,8 @@ export default class ViewTransformer extends React.Component {
         enableResistance: false
     };
 
+    innerViewRef = React.createRef();
+
     constructor (props) {
         super(props);
         this.state = {
@@ -133,7 +135,7 @@ export default class ViewTransformer extends React.Component {
             <View
               {...this.props}
               {...gestureResponder}
-              ref={'innerViewRef'}
+              ref={this.innerViewRef}
               onLayout={this.onLayout}>
                  <View
                    style={{
@@ -161,7 +163,7 @@ export default class ViewTransformer extends React.Component {
     }
 
     measureLayout () {
-        let handle = ReactNative.findNodeHandle(this.refs['innerViewRef']);
+        let handle = ReactNative.findNodeHandle(this.innerViewRef.current);
         NativeModules.UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
             if (typeof pageX === 'number' && typeof pageY === 'number') { // avoid undefined values on Android devices
                 if (this.state.pageX !== pageX || this.state.pageY !== pageY) {

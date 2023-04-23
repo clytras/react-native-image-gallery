@@ -35,6 +35,8 @@ export default class TransformableImage extends PureComponent {
         resizeMode: 'contain'
     };
 
+    viewTransformerRef = React.createRef();
+
     constructor (props) {
         super(props);
 
@@ -131,7 +133,7 @@ export default class TransformableImage extends PureComponent {
     }
 
     getViewTransformerInstance () {
-        return this.refs['viewTransformer'];
+        return this.viewTransformerRef.current;
     }
 
     renderError () {
@@ -178,7 +180,7 @@ export default class TransformableImage extends PureComponent {
 
         return (
             <ViewTransformer
-              ref={'viewTransformer'}
+              ref={this.viewTransformerRef}
               key={'viewTransformer#' + keyAccumulator} // when image source changes, we should use a different node to avoid reusing previous transform state
               enableTransform={enableTransform && imageLoaded} // disable transform until image is loaded
               enableScale={enableScale}
