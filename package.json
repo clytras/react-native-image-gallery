@@ -24,7 +24,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-fast-image": "*"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
