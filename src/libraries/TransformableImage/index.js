@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ViewPropTypes } from 'deprecated-react-native-prop-types';
-import { Image as Img, View, Text, ViewPropTypes } from 'react-native';
+import { Image as Img, View, Text } from 'react-native';
 import Image from "react-native-fast-image";
 import PropTypes from 'prop-types';
 import ViewTransformer from '../ViewTransformer';
